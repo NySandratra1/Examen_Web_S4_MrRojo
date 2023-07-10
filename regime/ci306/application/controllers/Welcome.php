@@ -20,7 +20,48 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('detailregime');
+		$this->load->view('index');
 		
-	}		
+	}
+	public function inscription()
+	{
+		$this->load->view('inscription');
+		
+	}
+	public function page()
+	{
+		$this->load->view('page');
+		
+	}	
+	public function traitement_inscription()
+	{
+		$this->load->model('CompteUser');
+		$nom=$this->input->post('nom');
+		$genre=$this->input->post('genre');
+		$poids=$this->input->post('poids');
+		$taille=$this->input->post('taille');
+		$mdp=$this->input->post('motdepasse');
+		if($nom !='' || $poids !=null || $taille !=null || $mdp!=''){
+			$this->CompteUser->insertMembre($nom,$mdp,$poids,$genre,$taille);
+			redirect(base_url('Welcome/index'));
+		}else{
+			redirect(base_url('Welcome/inscription'));
+		}		
+	}	
+	public function traitement_login()
+	{
+		$this->load->model('CompteUser');
+		$nom=$this->input->post('Nom');
+		$mdp=$this->input->post('Motdepasse');
+		if($nom !='admin' && $mdp!='admin'){
+			if($this->CompteUser->verifCompte($nom,$mdp)!=null){
+				redirect(base_url('Welcome/page'));
+			}else{
+				redirect(base_url('Welcome/inscription'));
+			}
+		}else{
+			redirect(base_url('AdminController/index'));
+		}
+				
+	}	
 }
