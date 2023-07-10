@@ -102,3 +102,5 @@ create view vDetailRepas as
     join sport as s on a.id_sport = s.id_sport
     order by r.num_regime,a.objectif,a.id_association
 ;
+
+select * from regime;
