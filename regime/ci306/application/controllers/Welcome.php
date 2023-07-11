@@ -70,7 +70,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('CompteUser');
 		$nom=$this->input->post('Nom');
 		$mdp=$this->input->post('Motdepasse');
-		if($nom !='admin' && $mdp!='admin'){
+		if($nom !=='admin' && $mdp!=='admin'){
 			if($this->CompteUser->verifCompte($nom,$mdp)!=null){
 				$_SESSION['id_membre'] = $this->CompteUser->verifCompte($nom,$mdp)[0] -> id_membre;
 				redirect(base_url('Welcome/page'));
@@ -78,7 +78,7 @@ class Welcome extends CI_Controller {
 				redirect(base_url('Welcome/inscription'));
 			}
 		}else{
-			redirect(base_url('AdminController/index'));
+			redirect(base_url('ControllerAdminValidation/index'));
 		}
 				
 	}

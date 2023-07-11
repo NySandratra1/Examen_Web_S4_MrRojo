@@ -110,3 +110,16 @@ create view vEtatCaisse as
 ;
 
 select * from regime;
+
+insert into code values ('1234',50000);
+insert into code values ('1587',70000);
+insert into code values ('1878',10000);
+insert into code values ('2042',30000);
+insert into code values ('2018',20000);
+insert into code values ('2001',10000);
+insert into code values ('4879',50000);
+insert into code values ('7899',40000);
+insert into code values ('2050',35000);
+insert into code values ('1971',30000);
+insert into code values ('1950',20000);
+insert into code values ('2000',25000);

@@ -42,6 +42,12 @@
                 <span class="ml-3 item-text">Etat de compte</span>
               </a>
             </li>
+            <li class="nav-item w-100">
+              <a class="nav-link" href="<?=base_url('ControllerRecharger/index')?>/<?=$_SESSION['id_membre']?>">
+                <i class="fe fe-layers fe-16"></i>
+                <span class="ml-3 item-text">Recharger</span>
+              </a>
+            </li>
           </lu>
           <a href="<?=base_url('Welcome/logout')?>"><button type="button" class="btn mb-2 btn-danger">Se Deconnecter</button></a>        
         </nav>

@@ -20,6 +20,7 @@ class ControllerAdminValidation extends CI_Controller {
 	 */
 	public function index()
 	{
+		session_start();
         $this->load->model('ModelAdminValidation');
         $donnees=$this->ModelAdminValidation->select_liste_validation();
         $zvtr = [];

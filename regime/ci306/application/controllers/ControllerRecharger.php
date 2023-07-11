@@ -20,6 +20,7 @@ class ControllerRecharger extends CI_Controller {
 	 */
 	public function index()
 	{
+		session_start();
 		$this->load->model('ModelRecharge');
 		$data['listeCode']=$this->ModelRecharge->select_code();
 		$data['mot']="";
@@ -28,6 +29,7 @@ class ControllerRecharger extends CI_Controller {
 	}		
 	public function rechargement()
 	{
+		session_start();
 		$code=$this->input->post('inputcode');
 		$membre=$this->input->post('membre');
 		$this->load->model('ModelRecharge');
