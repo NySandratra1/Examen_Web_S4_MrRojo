@@ -37,6 +37,7 @@ class ModelAdminValidation extends CI_Model {
             else{
               $mot="votre action est enregistre";
               $this->ModelAdminValidation->insertion_codeValide($idmembre,$code);
+              $this->ModelAdminValidation->Augmentercompte($idmembre,$code);
               $this->ModelAdminValidation->delete_attente($code);
             }
         }
@@ -83,7 +84,6 @@ class ModelAdminValidation extends CI_Model {
         $this->db->escape($idmembre),
         $this->db->escape($num_code)
         );
-        print_r($sql);
         $this->db->query($sql);
 	}
     		
@@ -107,6 +107,27 @@ class ModelAdminValidation extends CI_Model {
         $query= $this->db->get();
         return $query->result();
     }
+    public function select_montant_compte($idmembre)
+    {
+        $this->db->select('montant');
+        $this->db->from('Comptes');
+        $this->db->where('id_membre =',$idmembre);
+        $query= $this->db->get();
+        return $query->result();
+    }
+    public function Augmentercompte($idmembre,$code)
+    { 
+        $somme=$this->ModelAdminValidation->select_montant_compte($idmembre);
+        $montan=$this->ModelAdminValidation->obtention_montant($code);
+        
+        $total=$somme[0]->montant+$montan[0]->montant;
+       
+        $this->db->set('montant',$total,FALSE);
+        $this->db->where('id_membre',$idmembre);
+        $this->db->update('Comptes');
+       
+    }
+   
     /*
    
     public function select_code()

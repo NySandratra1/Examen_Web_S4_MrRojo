@@ -45,19 +45,4 @@ class ControllerAdminValidation extends CI_Controller {
         redirect(base_url('ControllerAdminValidation/index'));
 
     }
-		/*$this->load->model('ModelRecharge');
-		$data['listeCode']=$this->ModelRecharge->select_code();
-		$this->load->view('Recharge',$data);
-		
-	}		
-	public function rechargement()
-	{
-		$code=$this->input->post('inputcode');
-		$membre=$this->input->post('membre');
-		$this->load->model('ModelRecharge');
-		$data['mot']="";
-		$data['listeCode']=$this->ModelRecharge->select_code();
-		$data['mot']=$this->ModelRecharge->Verification($code,$membre);
-		$this->load->view('Recharge',$data);*/
-	
 }
