@@ -123,7 +123,7 @@
                   <?php } ?>
                   <form action="<?=base_url('Welcome/Verification')?>" method="Post">
                     <input type="hidden" name="prix" value="<?=$prix?>">
-                    <input type="hidden" name="idmembre" value=3>
+                    <input type="hidden" name="idmembre" value=<?=$_SESSION['id_membre']?>>
                     <button type="submit" class="btn mb-2 btn-success">Valider<span class="fe fe-arrow-right fe-16 ml-2"></span></button>      
                   </form>
         </div> <!-- .card-body -->

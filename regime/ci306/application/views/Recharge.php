@@ -44,7 +44,7 @@
              
               <div class="form-group">
                 <input type="text" id="inputCode" name="inputcode" class="form-control form-control-lg" placeholder="Veuillez inserer le code" required autofocus="">
-                <input type="hidden" id="membre" name="membre" class="form-control form-control-lg" value=1 required autofocus="">
+                <input type="hidden" id="membre" name="membre" class="form-control form-control-lg" value=<?=$_SESSION['id_membre']?> required autofocus="">
               </div>
               
               </form>
