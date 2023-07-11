@@ -44,6 +44,23 @@ class CompteUser extends CI_Model {
         $query= $this->db->get();
         return $query ->result();
     }
+    public function select_gold($idmembre)
+    {
+        $this->db->select('*');
+        $this->db->from('gold');
+        $this->db->where('id_membre =',$idmembre);
+        $query= $this->db->get();
+        return $query ->result();
+    }
+    public function insertgold($id)
+	{
+        $sql="insert into gold values(%s)";
+        $sql=sprintf($sql,
+        $this->db->escape($id)
+        );
+        print_r($sql);
+        $this->db->query($sql);
+	}
     public function Diminuercompte($idmembre,$prix)
     { 
         $somme=$this->CompteUser->select_montant_compte($idmembre);
@@ -52,6 +69,15 @@ class CompteUser extends CI_Model {
             $sur = $s -> montant;
         }
         $mot="";
+        $srt=0;
+        $golden=$this->CompteUser->select_gold($idmembre);
+        foreach($golden as $g){
+            $srt = $g -> id_membre;
+        }
+        if($srt!=0)
+        {
+            $prix=$prix-(($prix*15)/100);
+        }
         $total = $sur - $prix;
         if($total>=0)
         {
@@ -60,7 +86,7 @@ class CompteUser extends CI_Model {
             $this->db->update('Comptes');
         }
         else{
-            $mot="fond insuffisant";
+            $mot="solde insuffisant";
         }
         return $mot;
     }   

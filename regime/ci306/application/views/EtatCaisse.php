@@ -98,7 +98,16 @@
                     </div>
                   </div>
                 </div>
-               
+                <form action="<?=base_url('Welcome/VerificationGold')?>" method="Post">
+                <div class="row">
+                <div class="col-md-6 mb-4">
+                
+                  <input type="hidden" name="membre" value=<?=$_SESSION['id_membre']?>>
+                  <input type="hidden" name="caisse" value="<?=$caisse?>">
+                  <button type="submit" class="btn mb-2 btn-danger" style="height:150px">GOLD</button>
+                  </div>
+                  </div>
+                </form>
       </main>
     </div> <!-- .wrapper -->
     <script src="<?=base_url()?>js/jquery.min.js"></script>

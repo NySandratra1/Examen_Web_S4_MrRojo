@@ -97,6 +97,41 @@ class Welcome extends CI_Controller {
 		$data['nom']=$nom;
 		$data['caisse']=$somme;
 		$this->load->view('EtatCaisse',$data);
+	
+	}
+	public function VerificationGold()
+	{
+		session_start();
+		$this->load->model('CompteUser');
+		$idmembre=$this->input->post('membre');
+		$caisse=$this->input->post('caisse');
+		$gold=90000;
+		$srt=0;
+		$golden= $this->CompteUser->select_gold($idmembre);
+		foreach($golden as $g){
+            $srt = $g -> id_membre;
+        }
+		if($srt == 0)
+		{
+			$mot = $this->CompteUser->Diminuercompte($idmembre,$gold);
+			if($mot==="")
+			{
+				$mot="Mode Gold actif -15%";
+				$this->CompteUser->insertgold($idmembre);
+			}
+		}
+		foreach($this->CompteUser->selectEtatCaisse($idmembre) as $a){
+			$nom=$a->nom;
+			$somme = $a->montant;
+		}
+		if($srt != 0)
+		{
+			$mot="Mode Gold deja actif";
+		}
+		$data['mot'] =$mot;
+		$data['nom']=$nom;
+		$data['caisse']=$somme;
+		$this->load->view('EtatCaisse',$data);
 	}
 	public function logout(){
 		session_destroy();

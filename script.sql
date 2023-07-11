@@ -61,6 +61,10 @@ create table Suivi_de_poids(
     poids Decimal(10,3),
     FOREIGN key(id_membre) REFERENCES Membre(id_membre)
 );
+create table gold(
+    id_membre int not null,
+    FOREIGN key(id_membre) REFERENCES Membre(id_membre)
+);
 
 insert into regime values('Vary sy anana',1);
 insert into regime values('Jus de carotte',1);
