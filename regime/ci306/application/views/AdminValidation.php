@@ -26,7 +26,7 @@
         <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
           <i class="fe fe-x"><span class="sr-only"></span></i>
         </a>
-        <?php $this->load->view('sidebar')?>       
+        <?php $this->load->view('sidebaradmin')?>       
       </aside>
       <main role="main" class="main-content">
         <div class="container-fluid">

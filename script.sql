@@ -109,6 +109,9 @@ create view vEtatCaisse as
     join Comptes as c on m.id_membre = c.id_membre
 ;
 
+create view vNumRegime as
+select num_regime from regime group by num_regime;
+
 select * from regime;
 
 insert into code values ('1234',50000);
@@ -123,3 +126,4 @@ insert into code values ('2050',35000);
 insert into code values ('1971',30000);
 insert into code values ('1950',20000);
 insert into code values ('2000',25000);
+

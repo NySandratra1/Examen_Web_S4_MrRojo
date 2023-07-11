@@ -88,5 +88,12 @@ class ModelRecharge extends CI_Model {
         $this->db->query($sql);
 	}
     
-
+    public function insertionCode($code,$montant){
+        $sql="insert into code values(%s,%s)";
+        $sql=sprintf($sql,
+        $this->db->escape($code),
+        $this->db->escape($montant)
+        );
+        $this->db->query($sql);
+    }
 }

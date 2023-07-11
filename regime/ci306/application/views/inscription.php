@@ -38,7 +38,7 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="Nom">Nom</label>
-              <input type="text" class="form-control" id="Nom" name="nom">
+              <input type="text" class="form-control" id="Nom" name="nom" value="nas">
             </div>
             <div class="form-group col-md-6">
               <label for="Genre">Genre</label>
@@ -51,11 +51,11 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="Poids">Poids</label>
-              <input type="number" id="poids" class="form-control" name="poids">
+              <input type="number" id="poids" class="form-control" name="poids" value="60">
             </div>
             <div class="form-group col-md-6">
               <label for="Taille">Taille</label>
-              <input type="number" id="taille" class="form-control" placeholder="en cm" name="taille">
+              <input type="number" id="taille" class="form-control" placeholder="en cm" name="taille" value="179">
             </div>
           </div>
           <hr class="my-4">
@@ -63,7 +63,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="Motdepasse">Motdepasse</label>
-                <input type="password" class="form-control" id="Motdepasse" name="motdepasse">
+                <input type="password" class="form-control" id="Motdepasse" name="motdepasse" value="nas">
               </div>
             </div>
             <div class="col-md-6">

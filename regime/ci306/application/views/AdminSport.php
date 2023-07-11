@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,39 +19,48 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="<?= base_url("css/app-light.css")?>" id="lightTheme">
     <link rel="stylesheet" href="<?= base_url("css/app-dark.css")?>" id="darkTheme" disabled>
+    <style>
+        body
+            {
+                background-image: url('<?= base_url("assets/images/sakafo.jpg")?>');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+    </style>
   </head>
-  <body class="light ">
-    <div class="wrapper vh-100">
-      <div class="row align-items-center h-100">
-        <form class="col-lg-3 col-md-4 col-10 mx-auto text-center" action="<?=base_url('Welcome/traitement_login')?>" method="Post">
-          <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
-            <svg version="1.1" id="logo" class="navbar-brand-img brand-md" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
-              <g>
-                <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
-                <polygon class="st0" points="96,69 33,69 42,51 105,51 	" />
-                <polygon class="st0" points="78,33 15,33 24,15 87,15 	" />
-              </g>
-            </svg>
-          </a>
-          <h1 class="h6 mb-3">Sign in</h1>
-          <h1 class="h6 mb-3">Pour acceder au backoffice nom : admin, mdp: admin</h1>
-          <div class="form-group">
-            <label for="Nom" class="sr-only">Nom</label>
-            <input type="text" name ="Nom" id="Nom" class="form-control form-control-lg" placeholder="Nom" required="" autofocus="" value="nas">
-          </div>
-          <div class="form-group">
-            <label for="Motdepasse" class="sr-only">Motdepasse</label>
-            <input type="password" name ="Motdepasse" id="Motdepasse" class="form-control form-control-lg" placeholder="Mot_de_passe" required="" value="nas">
-          </div>
-          <div class="checkbox mb-3">
-            <label>
-              <a href="<?=base_url('Welcome/inscription')?>"> Inscription </a>
-          </div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
+  <body class="vertical  light  ">
+    <div class="wrapper">
       
-      </div>
-    </div>
+      <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
+        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
+          <i class="fe fe-x"><span class="sr-only"></span></i>
+        </a>
+        <?php $this->load->view('sidebaradmin')?>       
+      </aside>
+      <main role="main" class="main-content">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <form action = "<?=base_url('SportController/insert')?>" method="Post">
+                      <p class="h3 mb-3"><strong>Insertion Regime</strong></p>
+                      <div class="form-group mb-3">
+                        <label for="simpleinput">Nom</label>
+                        <input type="text" id="simpleinput" class="form-control" name="nom">
+                      </div>
+                      <button type="submit" class="btn mb-2 btn-primary">Valider</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div> <!-- .wrapper -->
     <script src="<?=base_url()?>js/jquery.min.js"></script>
     <script src="<?=base_url()?>js/popper.min.js"></script>
     <script src="<?=base_url()?>js/moment.min.js"></script>
@@ -74,6 +84,4 @@
       gtag('config', 'UA-56159088-1');
     </script>
   </body>
-</html>
-</body>
 </html>
