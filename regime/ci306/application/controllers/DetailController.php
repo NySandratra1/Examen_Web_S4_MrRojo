@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class DetailController extends CI_Controller {
     function selectDetail($id){
+        session_start();
         $this -> load -> model('DetailModel');
         $data['liste'] = $this -> DetailModel -> selectDetail($id);
         $repas = array();

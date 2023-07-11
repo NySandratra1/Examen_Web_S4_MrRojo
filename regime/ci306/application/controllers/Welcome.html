@@ -82,22 +82,6 @@ class Welcome extends CI_Controller {
 		}
 				
 	}
-	public function Verification()
-	{
-		session_start();
-		$this->load->model('CompteUser');
-		$idmembre=$this->input->post('idmembre');
-		$prix=$this->input->post('prix');
-		$mot = $this->CompteUser->Diminuercompte($idmembre,$prix);
-		foreach($this->CompteUser->selectEtatCaisse($idmembre) as $a){
-			$nom=$a->nom;
-			$somme = $a->montant;
-		}
-		$data['mot'] = $mot;
-		$data['nom']=$nom;
-		$data['caisse']=$somme;
-		$this->load->view('EtatCaisse',$data);
-	}
 	public function logout(){
 		session_destroy();
 		redirect(base_url('Welcome/index'));

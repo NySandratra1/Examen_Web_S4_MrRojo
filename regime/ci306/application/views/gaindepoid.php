@@ -24,6 +24,14 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="<?=base_url()?>css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="<?=base_url()?>css/app-dark.css" id="darkTheme" disabled>
+    <style>
+        body
+            {
+                background-image: url('<?= base_url("assets/images/sakafo3.jpg")?>');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+    </style>
   </head>
   <body class="vertical  light  ">
     <div class="wrapper">

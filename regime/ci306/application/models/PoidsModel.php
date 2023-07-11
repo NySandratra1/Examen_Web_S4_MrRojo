@@ -17,4 +17,12 @@ class PoidsModel extends CI_Model {
             $query=$this->db->get();
             return $query->result();
     }
+
+    function insertSuivi($id,$poids,$date){
+        $sql="insert into suivi_de_poids values(%s,%s,%s)";
+            $sql=sprintf($sql,
+                $this->db->escape($id),$this->db->escape($date),$this->db->escape($poids)
+            );
+            $this->db->query($sql);
+    }
 }

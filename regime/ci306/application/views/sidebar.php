@@ -13,6 +13,12 @@
           </div>
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
+              <a class="nav-link" href="<?=base_url('Welcome/page')?>">
+                <i class="fe fe-layers fe-16"></i>
+                <span class="ml-3 item-text">Suivi de Poids</span>
+              </a>
+            </li>
+            <li class="nav-item w-100">
               <a class="nav-link" href="<?=base_url('PerteController/selectPerte')?>">
                 <i class="fe fe-layers fe-16"></i>
                 <span class="ml-3 item-text">Perte</span>
@@ -31,10 +37,11 @@
               </a>
             </li>
             <li class="nav-item w-100">
-              <a class="nav-link" href="widgets.html">
+              <a class="nav-link" href="<?=base_url('Welcome/CaisseUser')?>/<?=$_SESSION['id_membre']?>">
                 <i class="fe fe-layers fe-16"></i>
                 <span class="ml-3 item-text">Etat de compte</span>
               </a>
             </li>
-          </lu>        
+          </lu>
+          <a href="<?=base_url('Welcome/logout')?>"><button type="button" class="btn mb-2 btn-danger">Se Deconnecter</button></a>        
         </nav>

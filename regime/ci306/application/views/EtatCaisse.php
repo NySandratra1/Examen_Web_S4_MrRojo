@@ -24,6 +24,14 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="<?=base_url()?>css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="<?=base_url()?>css/app-dark.css" id="darkTheme" disabled>
+    <style>
+        body
+            {
+                background-image: url('<?= base_url("assets/images/vola.jpg")?>');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+    </style>
   </head>
   <body class="vertical  light  ">
     <div class="wrapper">
@@ -72,66 +80,25 @@
         <?php $this->load->view('sidebar');?>
       </aside>
       <main role="main" class="main-content">
-        <h3>Detail du regime</h3>
-      <div class="col-12">
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card shadow">
-            <div class="card-header">
-              <strong class="h3 mb-0">Plat(s)</strong>
-            </div>
-            <div class="card-body">
-              <ul>
-                <?php for($i=0;$i<count($repas);$i++) { ?>
-                  <li><?=$repas[$i]?></li>
+      <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12 mb-4">
+              <h2 class="page-title">Etat de votre Caisse</h2>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="card shadow">
+                    <div class="card-header">
+                      <strong class="card-title mb-0"><?=$nom?></strong>
+                      <?php if(isset($mot)) { ?>
+                    <p style="color:red"><?=$mot?></p>
                 <?php } ?>
-              </ul>
-            </div>
-          </div>
-          
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card shadow">
-            <div class="card-header">
-              <strong class="h3 mb-0">Sport(s)</strong>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li><?=$sport[0]?></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card shadow bg-primary">
-            <div class="card-header">
-              <strong class="h3 mb-0 ">Prix</strong>
-            </div>
-            <div class="card-body">
-            
-                <span style = "color:white"><?=$prix?></span>
-              
-            </div>
-          </div>
-        </div> 
-                
-    </div>
-                  <?php if($obj==="gain") { ?>
-                    <a href = "<?=base_url('GainController/selectGain')?>"><button type="button" class="btn mb-2 btn-info" >Revenir<span class="fe fe-arrow-left fe-16 ml-2"></span></button></a>
-                  <?php }else{ ?>
-                    <a href = "<?=base_url('PerteController/selectPerte')?>"><button type="button" class="btn mb-2 btn-info" >Revenir<span class="fe fe-arrow-left fe-16 ml-2"></span></button></a>
-                  <?php } ?>
-                  <form action="<?=base_url('Welcome/Verification')?>" method="Post">
-                    <input type="hidden" name="prix" value="<?=$prix?>">
-                    <input type="hidden" name="idmembre" value=3>
-                    <button type="submit" class="btn mb-2 btn-success">Valider<span class="fe fe-arrow-right fe-16 ml-2"></span></button>      
-                  </form>
-        </div> <!-- .card-body -->
-      </div> <!-- .card -->
-    </div> <!-- .col -->
-                
-                   
-        
+                    </div>
+                    <div class="card-body">
+                      <div class="alert alert-info" role="alert"><?=$caisse?> Ar</div>
+                    </div>
+                  </div>
+                </div>
+               
       </main>
     </div> <!-- .wrapper -->
     <script src="<?=base_url()?>js/jquery.min.js"></script>

@@ -14,7 +14,9 @@ create table Tresorerie(
 );
 create table Comptes(
     id_compte int PRIMARY KEY AUTO_INCREMENT,
-    montant Decimal(10,3)
+    id_membre int,
+    montant Decimal(10,3),
+    FOREIGN KEY  (id_membre) REFERENCES Membre (id_membre)
 );
 create table Code(
     num_code Varchar(15) PRIMARY KEY,
@@ -101,6 +103,10 @@ create view vDetailRepas as
     join regime as r on a.num_regime = r.num_regime
     join sport as s on a.id_sport = s.id_sport
     order by r.num_regime,a.objectif,a.id_association
+;
+create view vEtatCaisse as
+    select m.id_membre,m.nom,c.montant from Membre as m 
+    join Comptes as c on m.id_membre = c.id_membre
 ;
 
 select * from regime;
